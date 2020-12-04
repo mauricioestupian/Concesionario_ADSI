@@ -1,7 +1,7 @@
-﻿@model Consesionario.Clientes 
+﻿@model Consesionario.Clientes
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Concesionario";
     Layout = "~/Views/Shared/_Layout.cshtml";
     List<SelectListItem> items = (List<SelectListItem>)ViewBag.items;
 }
@@ -100,7 +100,8 @@
                         <div class="formulario__grupo" id="grupo__Departamento">
                             @Html.Label("Id_Dep", "Departamento", htmlAttributes: new { @class = "formulario__label" })
                             <div class="formulario__grupo-input">
-                                @Html.DropDownList("Id_Dep" , items , "Selecciona Departamento" , new {@class = "form-control" } )
+                                @Html.DropDownListFor(model => model.Id_Dep, ViewBag.ListaDep as SelectList, "--seleccione", new { @class = "form-control" })
+                                @*Html.DropDownList("Id_Dep", items, "Selecciona Departamento", new { @class = "form-control" })*@
                             </div>
                         </div>
                     </div>
@@ -109,10 +110,7 @@
                         <div class="formulario__grupo" id="grupo__Cod_Ciu">
                             <label for="Cod_Ciu" class="formulario__label">Ciudad</label>
                             <div class="formulario__grupo-input">
-                                <select id="Cod_Ciu" name="Cod_Ciu" class="form-control">
-                                    <option value="1">Seleccione Ciudad</option>
-                                    <option value="156">Chiquinquirá</option>
-                                </select>
+                                @Html.DropDownListFor(model => model.Cod_Ciu , new SelectList("") ,"--seleccione", new { @class = "form-control" })
                                 <p class="formulario__input-error">Debe Seleccionar una ciudad.</p>
                             </div>
                         </div>
@@ -152,3 +150,5 @@
 </div>
 
 <script src="~/Scripts/formulario.js"></script>
+<script src="~/Scripts/Ciudades.js"></script>
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>

@@ -1,17 +1,12 @@
-﻿$(document).ready(function () {
+﻿document.getElementById('Id_Dep').addEventListener('change', function () {
+    var Cod_Dep = this.value;
+    //alert("el valor del departamento cambio a " + Cod_Dep);
+    $.get("/Clientes/GetListCiu", { Cod_Dep } , function (datos) {
+        $("#Cod_Ciu").empty();
+        $.each(datos, function (Create, row) {
+            $("#Cod_Ciu").append("<option value='" + row.Id_Ciu + "'>" + row.Nom_Ciu + "</option>")
+        });
+    });
+});
 
-    $("#Id_Dep").change(function () {
-        var value = $("#Id_Dep option:selected").val();
-
-        if (value !== "" || value !== undefined) {
-            ListadoCiudades(Value);
-        }
-    })
-
-})
-
-function ListadoCiudades(Value) {
-
-    var url
-}
 

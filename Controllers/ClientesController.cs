@@ -39,24 +39,27 @@ namespace Consesionario.Controllers
         // GET: Clientes/Create
         public ActionResult Create()
         {
-            List<Depmodels> lista =
-                (from dep in db.Departamento
-                 select new Depmodels
+            //Lista departamento
+            /*List<Depmodels> lista =
+                (from dep in db.Departamento select new Depmodels
                  {
                      id = dep.Id_Dep,
                      Nombre = dep.Nom_Dep
                  }).ToList();
 
-            List<SelectListItem> items = lista.ConvertAll(dep=>
+            List<SelectListItem> items = lista.ConvertAll(dep =>
             {
                 return new SelectListItem()
                 {
                     Text = dep.Nombre.ToString(),
-                    Value =  dep.id.ToString(),
+                    Value = dep.id.ToString(),
                     Selected = false
                 };
             });
-            ViewBag.items = items;
+
+            ViewBag.items = items;*/
+            List<Departamento> ListaDep = db.Departamento.ToList();
+            ViewBag.ListaDep = new SelectList(ListaDep, "Id_Dep", "Nom_Dep");
             return View();
         }
 
@@ -144,5 +147,11 @@ namespace Consesionario.Controllers
             base.Dispose(disposing);
         }
 
+        public JsonResult GetListCiu(int Cod_Dep)
+        {
+            db.Configuration.ProxyCreationEnabled = false;
+            List<Ciudad> ListCiu = db.Ciudad.Where(c => c.Cod_Dep == Cod_Dep).ToList();
+            return Json(ListCiu, JsonRequestBehavior.AllowGet);
+        }
     }
 }

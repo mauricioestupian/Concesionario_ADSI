@@ -7,6 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+
 namespace Consesionario
 {
     using System;
@@ -21,6 +22,8 @@ namespace Consesionario
         public string Tel_Cli { get; set; }
         public string Correo { get; set; }
         public Nullable<System.DateTime> fecha_crea { get; set; }
-        public Nullable<int> Cod_Ciu { get; set; }
+        public int Cod_Ciu { get; set; }
+        public int Id_Dep { get; set; }
+
     }
 }
