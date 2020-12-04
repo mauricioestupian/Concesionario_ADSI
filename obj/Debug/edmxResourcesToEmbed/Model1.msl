@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ConsesionarioModeloStoreContainer" CdmEntityContainer="ConsesionarioTablas">
+    <EntitySetMapping Name="Ciudad">
+      <EntityTypeMapping TypeName="ConsesionarioModelo.Ciudad">
+        <MappingFragment StoreEntitySet="Ciudad">
+          <ScalarProperty Name="Id_Ciu" ColumnName="Id_Ciu" />
+          <ScalarProperty Name="Nom_Ciu" ColumnName="Nom_Ciu" />
+          <ScalarProperty Name="Cod_Dep" ColumnName="Cod_Dep" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clientes">
+      <EntityTypeMapping TypeName="ConsesionarioModelo.Clientes">
+        <MappingFragment StoreEntitySet="Clientes">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Nom_Cli" ColumnName="Nom_Cli" />
+          <ScalarProperty Name="Ape_Cli" ColumnName="Ape_Cli" />
+          <ScalarProperty Name="Doc_Cli" ColumnName="Doc_Cli" />
+          <ScalarProperty Name="Tel_Cli" ColumnName="Tel_Cli" />
+          <ScalarProperty Name="Correo" ColumnName="Correo" />
+          <ScalarProperty Name="fecha_crea" ColumnName="fecha_crea" />
+          <ScalarProperty Name="Cod_Ciu" ColumnName="Cod_Ciu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Departamento">
+      <EntityTypeMapping TypeName="ConsesionarioModelo.Departamento">
+        <MappingFragment StoreEntitySet="Departamento">
+          <ScalarProperty Name="Id_Dep" ColumnName="Id_Dep" />
+          <ScalarProperty Name="Nom_Dep" ColumnName="Nom_Dep" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
