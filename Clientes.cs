@@ -12,9 +12,12 @@ namespace Consesionario
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+    using System.Linq;
+
     public partial class Clientes
     {
+
         public int id { get; set; }
         public string Nom_Cli { get; set; }
         public string Ape_Cli { get; set; }
@@ -23,7 +26,5 @@ namespace Consesionario
         public string Correo { get; set; }
         public Nullable<System.DateTime> fecha_crea { get; set; }
         public int Cod_Ciu { get; set; }
-        public int Id_Dep { get; set; }
-
     }
 }

@@ -16,105 +16,89 @@
             {
                 @Html.AntiForgeryToken()
 
-                //<div class="form-horizontal">
                 <h4>Clientes</h4>
-                <hr />
-                // @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <hr />              
+                
                 <div class="form-row">
-                    <!-- Grupo: Nombres -->
-                    <div class="form-group col-md-6">
-                        <div class="formulario__grupo" id="grupo__Nom_Cli">
+                    <!-- Grupo: Nombres -->                    
+                        <div class="formulario__grupo form-group col-md-6" id="grupo__Nom_Cli">
                             @Html.LabelFor(Model => Model.Nom_Cli, "Nombres", htmlAttributes: new { @class = "formulario__label" })
                             <div class="formulario__grupo-input">
                                 @Html.EditorFor(model => model.Nom_Cli, new { htmlAttributes = new { @class = "formulario__input ", placeholder = "Nombres" /*, required = "required"*/ } })
                                 <i class="formulario__validacion-estado fas fa-times-circle"></i>
                             </div>
-                            <p class="formulario__input-error">El Nombre solo puede conten letras y entre 2 y 25.</p>
-                        </div>
+                            <p class="formulario__input-error">El Nombre solo puede conten letras y entre 2 y 25.</p>                      
                     </div>
-                    <!-- Grupo: Apellidos -->
-                    <div class="form-group col-md-6">
-                        <div class="formulario__Apellidos" id="grupo__Ape_Cli">
+
+                    <!-- Grupo: Apellidos -->                    
+                        <div class="formulario__Apellidos form-group col-md-6" id="grupo__Ape_Cli">
                             @Html.LabelFor(Model => Model.Ape_Cli, "Apellidos", htmlAttributes: new { @class = "formulario__label" })
                             <div class="formulario__grupo-input">
                                 @Html.EditorFor(model => model.Ape_Cli, new { htmlAttributes = new { @class = "formulario__input" } })
                                 <i class="formulario__validacion-estado fas fa-times-circle"></i>
                             </div>
                             <p class="formulario__input-error">El Apellido solo puede conten letras y entre 2 y 25.</p>
-                        </div>
-                    </div>
+                        </div>                    
                 </div>
 
                 <div class="form-row">
-                    <!-- Grupo: Documento -->
-                    <div class="form-group col-md-6">
-                        <div class="formulario__grupo" id="grupo__Doc_Cli">
+                    <!-- Grupo: Documento -->                    
+                        <div class="formulario__grupo form-group col-md-6" id="grupo__Doc_Cli">
                             @Html.LabelFor(Model => Model.Doc_Cli, "Número de Documento", htmlAttributes: new { @class = "formulario__label" })
                             <div class="formulario__grupo-input">
-                                @Html.EditorFor(model => model.Doc_Cli, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.EditorFor(model => model.Doc_Cli, new { htmlAttributes = new { @class = "formulario__input" } })
                                 <i class="formulario__validacion-estado fas fa-times-circle"></i>
                             </div>
                             <p class="formulario__input-error">El documento debe ser solo números y mas de 4 dígitos.</p>
                         </div>
-                    </div>
 
                     <!-- Grupo: Celular -->
-                    <div class="form-group col-md-6">
-                        <div class="formulario__grupo" id="grupo__Tel_Cli">
+                        <div class="formulario__grupo form-group col-md-6" id="grupo__Tel_Cli">
                             @Html.LabelFor(Model => Model.Tel_Cli, "Celular", htmlAttributes: new { @class = "formulario__label" })
                             <div class="formulario__grupo-input">
-                                @Html.EditorFor(model => model.Tel_Cli, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.EditorFor(model => model.Tel_Cli, new { htmlAttributes = new { @class = "formulario__input" } })
                                 <i class="formulario__validacion-estado fas fa-times-circle"></i>
                             </div>
                             <p class="formulario__input-error">Debe ser un número Celular valido para Colombia.</p>
                         </div>
-                    </div>
                 </div>
 
                 <!-- Grupo: Correo Electronico -->
-                <div class="form-group">
-                    <div class="formulario__grupo" id="grupo__Correo">
+                    <div class="form-group formulario__grupo form-group col-md-8" id="grupo__Correo">
                         @Html.LabelFor(Model => Model.Correo, "Correo Electrónico", htmlAttributes: new { @class = "formulario__label" })
                         <div class="formulario__grupo-input">
-                            @Html.EditorFor(model => model.Correo, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.EditorFor(model => model.Correo, new { htmlAttributes = new { @class = "formulario__input" } })
                             <i class="formulario__validacion-estado fas fa-times-circle"></i>
                         </div>
                         <p class="formulario__input-error">debe ser un formato de correo válido ejem correo@correo.com</p>
                     </div>
-                </div>
-
 
                 <div class="form-group">
-
                     <div class="formulario__grupo-input">
-                        @*Html.EditorFor(model => model.fecha_crea, new { htmlAttributes = new { @class = "form-control", type = "datatime-local", } })*@
-                        @*Html.TextBoxFor(model => model.fecha_crea, new { @Value = System.DateTime.Now, style = "visibility:hidden" })*@
                         @Html.TextBoxFor(model => model.fecha_crea, new { @Value = @DateTime.Now.ToShortDateString(), @class = "form-control", style = " display: none;" })
                     </div>
-
                 </div>
 
-                <div class="form-group">
+                <div class="form-row">
                     <!-- Grupo: Departamento -->
-                    <div class="form-group col-md-6">
-                        <div class="formulario__grupo" id="grupo__Departamento">
-                            @Html.Label("Id_Dep", "Departamento", htmlAttributes: new { @class = "formulario__label" })
-                            <div class="formulario__grupo-input">
-                                @Html.DropDownListFor(model => model.Id_Dep, ViewBag.ListaDep as SelectList, "--seleccione", new { @class = "form-control" })
-                                @*Html.DropDownList("Id_Dep", items, "Selecciona Departamento", new { @class = "form-control" })*@
-                            </div>
+                    <div class="formulario__grupo form-group col-md-6" id="grupo__Departamento">
+                        @Html.Label("Id_Dep", "Departamento", htmlAttributes: new { @class = "formulario__label" })
+                        <div class="formulario__grupo-input">
+                            @Html.DropDownList("Id_Dep", ViewBag.ListaDep as SelectList, "--seleccione", new { @class = "form-control"})
+                            @*Opción 2 para llenar lista departamento "ver controlador"
+                             @Html.DropDownList("Id_Dep", items, "Selecciona Departamento", new { @class = "form-control" })*@
                         </div>
+                        <p class="formulario__input-error">debe ser un formato de correo válido ejem correo@correo.com</p>
                     </div>
+
                     <!-- Grupo: Ciudad -->
-                    <div class="form-group col-md-6">
-                        <div class="formulario__grupo" id="grupo__Cod_Ciu">
-                            <label for="Cod_Ciu" class="formulario__label">Ciudad</label>
+                        <div class="formulario__grupo form-group col-md-6" id="grupo__Cod_Ciu">
+                            @Html.Label("Cod_Ciu", "Ciudad", htmlAttributes: new { @class = "formulario__label" })
                             <div class="formulario__grupo-input">
-                                @Html.DropDownListFor(model => model.Cod_Ciu , new SelectList("") ,"--seleccione", new { @class = "form-control" })
+                                @Html.DropDownListFor(model => model.Cod_Ciu, new SelectList(""), "--Seleccione", new { @class = "form-control" })
                                 <p class="formulario__input-error">Debe Seleccionar una ciudad.</p>
                             </div>
                         </div>
-                    </div>
                 </div>
 
                 <div class="form-row">
@@ -132,7 +116,7 @@
                 </div>
                 <div class="form-group">
                     <div class="formulario__grupo formulario__grupo-btn-enviar">
-                        <button type="submit" class="formulario__btn">Enviar</button>
+                        <button type="submit" class="formulario__btn" >Enviar</button>
                         <p class="formulario__mensaje-exito" id="formulario__mensaje-exito">Formulario enviado exitosamente!</p>
                     </div>
                 </div>
@@ -148,7 +132,11 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
-
+@*JavaScript para validación en las expresiones o contenidos del formulario*@
 <script src="~/Scripts/formulario.js"></script>
+@*Elemeto que incerta los iconos a los input*@
+<script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+@*Carga automatica de Ciudades segun departamento*@
 <script src="~/Scripts/Ciudades.js"></script>
 <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.js"></script>

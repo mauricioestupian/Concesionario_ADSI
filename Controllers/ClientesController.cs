@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.ComponentModel;
 using Consesionario.Models.ViewModels;
+using System.ComponentModel.DataAnnotations;
 
 namespace Consesionario.Controllers
 {
@@ -153,5 +154,18 @@ namespace Consesionario.Controllers
             List<Ciudad> ListCiu = db.Ciudad.Where(c => c.Cod_Dep == Cod_Dep).ToList();
             return Json(ListCiu, JsonRequestBehavior.AllowGet);
         }
+
+        public JavaScriptResult UserExt(string inputdoc)
+        {
+            if (db.Clientes.Where(us => us.Doc_Cli == inputdoc).Any()) 
+             
+                return JavaScript("0");
+           
+            else
+                return JavaScript("1");
+
+
+        }
+
     }
 }
